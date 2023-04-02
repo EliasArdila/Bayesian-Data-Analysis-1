@@ -1,0 +1,7 @@
+model
+{
+     ##likelihood
+     y ~ dbin(theta,N)
+     ##prior
+     theta ~ dbeta(aprior, bprior)
+}
