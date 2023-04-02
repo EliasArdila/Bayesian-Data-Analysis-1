@@ -63,27 +63,9 @@ There is a $95\%$ probability that $\theta$ falls within $(`r round(post.int[1],
 
 ## Exact Computations
 
-\newcommand{\betadistribution}[1]{ {\frac{1}{B(\alpha,\beta)} (#1)^{(\alpha - 1)}(1 - #1)^{\beta -1 }}}
-\newcommand{\binomialdistribution}{{ \binom{N}{y} \theta^{y}(1 - \theta)^{N-y}  }}
-\newcommand{\inversegammadistribution}[1]{\ensuremath{\frac{\beta^{\alpha}}{\Gamma{(\alpha)}} \left(\frac{1}{#1}\right)^{\alpha + 1}\exp{\left(-\frac{\beta}{#1} \right)}  }}
-\newcommand{\normaldistributionlik}{\ensuremath{\left( \frac{1}{\sqrt{2\pi\sigma^2}}  \right)^{n} \exp{\left(- \frac{1}{2\sigma^2}\left[ n(\mu - \bar{x})^2 + s^2 \right]   \right) }        }}
-\newcommand{\normaldistribution}{\ensuremath{\frac{1}{\sqrt{2\pi\sigma^2}} \exp{\left(-\frac{1}{2\sigma^2}(x - \mu)^2  \right)}  } }
-\newcommand{\normalD}[3]{\ensuremath{\frac{1}{\sqrt{2\pi #1^2}} \exp{\left(-\frac{1}{2 #1^2}(#3 - #2)^2  \right)}  } }
 
 $$
- p(y) =  \int_{\theta=0}^{1}\underbrace{\betadistribution{\theta}}_{\theta \sim Beta(\alpha,\beta)} \underbrace{\binomialdistribution}_{y|\theta \sim Bin(\theta,N)} d\theta\\
-      =  \frac{1}{B(\alpha,\beta)}\begin{pmatrix}N \\
-                                                  y \end{pmatrix} \int_{\theta}\theta^{(\alpha - 1)}(1-\theta)^{(\beta - 1)}\theta^{y}(1 - \theta)^{(N - y)}d\theta\\
-      =  \frac{1}{B(\alpha,\beta)}\begin{pmatrix}N \\
-                                                  y \end{pmatrix} \int_{\theta}\theta^{(y + \alpha - 1)}(1-\theta)^{(N - y + \beta - 1)}d\theta\\
-      =    \frac{1}{B(\alpha,\beta)}\binom{N}{y} B(y + \alpha, N - y + \beta)\\
-$$
-    
-
-
-$$
-  p(\theta|D_n) = \frac{ \underbrace{\betadistribution{\theta}}_{ \theta \sim Beta(\alpha,\beta)} \underbrace{\binomialdistribution}_{ y|\theta \sim Bin(\theta,N) } }{ \frac{1}{B(\alpha,\beta)}\binom{N}{y} B(y + \alpha, N - y + \beta)}\\
-                =\frac{1}{ B(y + \alpha, N - y + \beta)}\theta^{(y + \alpha)}(1 - \theta)^{(N - y + \beta)}\\
+  p(\theta|D_n) = \frac{1}{ B(y + \alpha, N - y + \beta)}\theta^{(y + \alpha)}(1 - \theta)^{(N - y + \beta)}\\
 $$
 
 Posterior distribution $\theta | D_n$
